@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>起業・求人一覧 | 全国空き家再生プラットフォーム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wa-red': '#C53030',
+                        'wa-orange': '#DD6B20',
+                        'wa-gold': '#D69E2E',
+                        'wa-green': '#38A169',
+                        'wa-indigo': '#4C51BF',
+                        'wa-brown': '#8B4513',
+                        'text-dark': '#2D3748'
+                    },
+                    fontFamily: {
+                        'wa-serif': ['Georgia', 'serif'],
+                        'wa-sans': ['Hiragino Sans', 'Yu Gothic', 'Meiryo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-wa-sans bg-gradient-to-b from-gray-50 to-gray-100">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <a href="/" class="text-xl font-wa-serif font-bold text-text-dark tracking-wide hover:text-wa-red transition-colors">全国空き家再生プラットフォーム</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="/" class="text-gray-700 hover:text-wa-red transition-colors font-medium">ホーム</a>
+                        <a href="#" class="text-wa-red font-medium">起業・求人一覧</a>
+                        <a href="/" class="text-gray-700 hover:text-wa-red transition-colors font-medium">サポート</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-wa-red via-wa-orange to-wa-gold py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-wa-serif font-bold text-white mb-6 leading-tight relative z-10">
+                起業・求人一覧
+            </h1>
+            <p class="text-xl text-white/95 mb-8 font-medium relative z-10">
+                全国の空き家再生プロジェクトで、あなたの夢を実現しませんか？
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex flex-wrap gap-4">
+                    <!-- 地域フィルター -->
+                    <div class="relative">
+                        <select id="regionFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-wa-red focus:border-transparent">
+                            <option value="">全地域</option>
+                            <option value="福岡県">福岡県</option>
+                            <option value="京都府">京都府</option>
+                            <option value="長野県">長野県</option>
+                            <option value="島根県">島根県</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 業種フィルター -->
+                    <div class="relative">
+                        <select id="categoryFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-wa-red focus:border-transparent">
+                            <option value="">全業種</option>
+                            <option value="カフェ・レストラン">カフェ・レストラン</option>
+                            <option value="宿泊施設">宿泊施設</option>
+                            <option value="体験工房">体験工房</option>
+                            <option value="ショップ">ショップ</option>
+                            <option value="コワーキング">コワーキング</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 補助金フィルター -->
+                    <div class="relative">
+                        <select id="subsidyFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-wa-red focus:border-transparent">
+                            <option value="">補助金</option>
+                            <option value="あり">補助金あり</option>
+                            <option value="なし">補助金なし</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 検索ボックス -->
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="キーワード検索..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wa-red focus:border-transparent w-64">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Listings -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6 flex justify-between items-center">
+                <p class="text-gray-600" id="resultCount">全 12 件の求人</p>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-500">並び順:</span>
+                    <select id="sortFilter" class="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-wa-red">
+                        <option value="newest">新着順</option>
+                        <option value="subsidy">補助金額順</option>
+                        <option value="region">地域順</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="jobListings" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Job Card 1 -->
+                <div class="job-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="福岡県" data-category="カフェ・レストラン" data-subsidy="あり">
+                    <div class="h-48 bg-gradient-to-r from-red-200 to-red-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-red/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家カフェの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金70%</span>
+                            <span class="bg-wa-indigo text-white px-3 py-1 rounded-full text-sm font-medium">起業募集</span>
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の古民家カフェ経営者募集</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">築80年の趣ある古民家をカフェに再生。地域の食材を活かした料理で地域活性化に貢献</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>• 補助率：改修費用の70%（上限500万円）</p>
+                            <p>• 賃料：月3万円（3年間半額）</p>
+                            <p>• 初期投資目安：150万円〜</p>
+                        </div>
+                        <button class="w-full bg-wa-red text-white py-3 rounded-lg font-bold hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            詳細を見る・応募する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="job-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="福岡県" data-category="宿泊施設" data-subsidy="あり">
+                    <div class="h-48 bg-gradient-to-r from-orange-200 to-orange-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-orange/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">町家ゲストハウスの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金60%</span>
+                            <span class="bg-wa-green text-white px-3 py-1 rounded-full text-sm font-medium">運営者募集</span>
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の町家ゲストハウス運営者募集</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">歴史ある町家をゲストハウスに再生。国内外の観光客に日本の伝統文化を体験してもらう</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>• 補助率：改修費用の60%（上限300万円）</p>
+                            <p>• 賃料：月5万円（2年間半額）</p>
+                            <p>• 初期投資目安：120万円〜</p>
+                        </div>
+                        <button class="w-full bg-wa-orange text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            詳細を見る・応募する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="job-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="福岡県" data-category="体験工房" data-subsidy="あり">
+                    <div class="h-48 bg-gradient-to-r from-yellow-200 to-yellow-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-gold/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">木工体験工房の写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金80%</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">体験工房</span>
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の木工体験工房運営者募集</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">400年の伝統を持つ大川家具の技術を体験できる工房。観光客や地域住民に木工の魅力を伝える</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>• 補助率：改修費用の80%（上限400万円）</p>
+                            <p>• 賃料：月4万円（工具・設備込み）</p>
+                            <p>• 初期投資目安：80万円〜</p>
+                        </div>
+                        <button class="w-full bg-wa-gold text-white py-3 rounded-lg font-bold hover:bg-yellow-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            詳細を見る・応募する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 4 -->
+                <div class="job-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="京都府" data-category="カフェ・レストラン" data-subsidy="あり">
+                    <div class="h-48 bg-gradient-to-r from-purple-200 to-purple-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-indigo/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">京町家カフェの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            京都府京都市
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金50%</span>
+                            <span class="bg-wa-indigo text-white px-3 py-1 rounded-full text-sm font-medium">起業募集</span>
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">京町家カフェ経営者募集</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">築100年の京町家を活用したカフェ。京都の伝統文化と現代的なカフェ文化の融合</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>• 補助率：改修費用の50%（上限800万円）</p>
+                            <p>• 賃料：月12万円</p>
+                            <p>• 初期投資目安：400万円〜</p>
+                        </div>
+                        <button class="w-full bg-wa-indigo text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                            詳細を見る・応募する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 5 -->
+                <div class="job-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="長野県" data-category="ショップ" data-subsidy="あり">
+                    <div class="h-48 bg-gradient-to-r from-green-200 to-green-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-green/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家ショップの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            長野県松本市
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金65%</span>
+                            <span class="bg-wa-green text-white px-3 py-1 rounded-full text-sm font-medium">ショップ</span>
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">信州古民家クラフトショップ運営者募集</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">信州の伝統工芸品や地元作家の作品を販売するショップ。観光客と地域をつなぐ拠点</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>• 補助率：改修費用の65%（上限350万円）</p>
+                            <p>• 賃料：月6万円（2年間半額）</p>
+                            <p>• 初期投資目安：120万円〜</p>
+                        </div>
+                        <button class="w-full bg-wa-green text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            詳細を見る・応募する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Job Card 6 -->
+                <div class="job-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="島根県" data-category="コワーキング" data-subsidy="あり">
+                    <div class="h-48 bg-gradient-to-r from-blue-200 to-blue-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-indigo/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家コワーキングの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            島根県出雲市
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金75%</span>
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-medium">コワーキング</span>
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">出雲古民家コワーキングスペース運営者募集</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed">リモートワーカーやフリーランサーが集う古民家コワーキングスペース。地域と都市をつなぐ</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>• 補助率：改修費用の75%（上限450万円）</p>
+                            <p>• 賃料：月7万円（3年間半額）</p>
+                            <p>• 初期投資目安：110万円〜</p>
+                        </div>
+                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg font-bold hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            詳細を見る・応募する
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-wa-indigo text-white px-8 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                    さらに読み込む
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-6 h-6 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        <h5 class="font-wa-serif font-bold">全国空き家再生プラットフォーム</h5>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">空き家と起業家をつなぐ、新しいまちづくりプラットフォーム</p>
+                </div>
+                <div>
+                    <h6 class="font-wa-serif font-bold mb-4">起業家向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-wa-red transition-colors">始め方</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">成功事例</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">サポート体制</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-wa-serif font-bold mb-4">自治体向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-wa-red transition-colors">案件登録</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">補助金制度</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">導入相談</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-wa-serif font-bold mb-4">支援者向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-wa-red transition-colors">クラウドファンディング</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">地域コミュニティ</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">地域への影響</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 全国空き家再生プラットフォーム. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // フィルター機能
+        function filterJobs() {
+            const region = document.getElementById('regionFilter').value;
+            const category = document.getElementById('categoryFilter').value;
+            const subsidy = document.getElementById('subsidyFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            
+            const jobCards = document.querySelectorAll('.job-card');
+            let visibleCount = 0;
+            
+            jobCards.forEach(card => {
+                const cardRegion = card.getAttribute('data-region');
+                const cardCategory = card.getAttribute('data-category');
+                const cardSubsidy = card.getAttribute('data-subsidy');
+                const cardText = card.textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (region && cardRegion !== region) show = false;
+                if (category && cardCategory !== category) show = false;
+                if (subsidy && cardSubsidy !== subsidy) show = false;
+                if (search && !cardText.includes(search)) show = false;
+                
+                if (show) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('resultCount').textContent = `全 ${visibleCount} 件の求人`;
+        }
+        
+        // ソート機能
+        function sortJobs() {
+            const sortBy = document.getElementById('sortFilter').value;
+            const container = document.getElementById('jobListings');
+            const cards = Array.from(container.querySelectorAll('.job-card'));
+            
+            cards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'newest':
+                        return 0; // デフォルト順序を維持
+                    case 'subsidy':
+                        const aSubsidy = parseInt(a.querySelector('.bg-wa-red').textContent.match(/\d+/)[0]);
+                        const bSubsidy = parseInt(b.querySelector('.bg-wa-red').textContent.match(/\d+/)[0]);
+                        return bSubsidy - aSubsidy;
+                    case 'region':
+                        const aRegion = a.getAttribute('data-region');
+                        const bRegion = b.getAttribute('data-region');
+                        return aRegion.localeCompare(bRegion);
+                    default:
+                        return 0;
+                }
+            });
+            
+            cards.forEach(card => container.appendChild(card));
+        }
+        
+        // イベントリスナー
+        document.getElementById('regionFilter').addEventListener('change', filterJobs);
+        document.getElementById('categoryFilter').addEventListener('change', filterJobs);
+        document.getElementById('subsidyFilter').addEventListener('change', filterJobs);
+        document.getElementById('searchInput').addEventListener('input', filterJobs);
+        document.getElementById('sortFilter').addEventListener('change', sortJobs);
+        
+        // 初期表示
+        filterJobs();
+    </script>
+</body>
+</html>
