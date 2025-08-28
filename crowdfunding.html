@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラウドファンディング | 全国空き家再生プラットフォーム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wa-red': '#C53030',
+                        'wa-orange': '#DD6B20',
+                        'wa-gold': '#D69E2E',
+                        'wa-green': '#38A169',
+                        'wa-indigo': '#4C51BF',
+                        'wa-brown': '#8B4513',
+                        'text-dark': '#2D3748'
+                    },
+                    fontFamily: {
+                        'wa-serif': ['Georgia', 'serif'],
+                        'wa-sans': ['Hiragino Sans', 'Yu Gothic', 'Meiryo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-wa-sans bg-gradient-to-b from-gray-50 to-gray-100">
+    <!-- Header -->
+    <header class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <a href="index.html" class="text-xl font-wa-serif font-bold text-text-dark tracking-wide hover:text-wa-red transition-colors">全国空き家再生プラットフォーム</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="index.html" class="text-gray-700 hover:text-wa-red transition-colors font-medium">ホーム</a>
+                        <a href="jobs.html" class="text-gray-700 hover:text-wa-red transition-colors font-medium">起業・求人一覧</a>
+                        <a href="#" class="text-wa-red font-medium">クラウドファンディング</a>
+                        <a href="index.html" class="text-gray-700 hover:text-wa-red transition-colors font-medium">サポート</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-wa-indigo via-wa-green to-wa-gold py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-wa-serif font-bold text-white mb-6 leading-tight relative z-10">
+                クラウドファンディング
+            </h1>
+            <p class="text-xl text-white/95 mb-8 font-medium relative z-10">
+                地域の未来を一緒に創りませんか？あなたの支援が空き家を新しい拠点に変えます
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap gap-4 items-center justify-between">
+                <div class="flex flex-wrap gap-4">
+                    <!-- 地域フィルター -->
+                    <div class="relative">
+                        <select id="regionFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-wa-indigo focus:border-transparent">
+                            <option value="">全地域</option>
+                            <option value="福岡県">福岡県</option>
+                            <option value="京都府">京都府</option>
+                            <option value="長野県">長野県</option>
+                            <option value="島根県">島根県</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 業種フィルター -->
+                    <div class="relative">
+                        <select id="categoryFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-wa-indigo focus:border-transparent">
+                            <option value="">全業種</option>
+                            <option value="カフェ・レストラン">カフェ・レストラン</option>
+                            <option value="宿泊施設">宿泊施設</option>
+                            <option value="体験工房">体験工房</option>
+                            <option value="ショップ">ショップ</option>
+                            <option value="コワーキング">コワーキング</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- 目標金額フィルター -->
+                    <div class="relative">
+                        <select id="goalFilter" class="appearance-none bg-white border border-gray-300 rounded-lg px-4 py-2 pr-8 focus:outline-none focus:ring-2 focus:ring-wa-indigo focus:border-transparent">
+                            <option value="">目標金額</option>
+                            <option value="50万円以下">50万円以下</option>
+                            <option value="100万円以下">100万円以下</option>
+                            <option value="200万円以下">200万円以下</option>
+                            <option value="200万円以上">200万円以上</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20">
+                                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 検索ボックス -->
+                <div class="relative">
+                    <input type="text" id="searchInput" placeholder="キーワード検索..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-wa-indigo focus:border-transparent w-64">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crowdfunding Projects -->
+    <section class="py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-6 flex justify-between items-center">
+                <p class="text-gray-600" id="resultCount">全 8 件のプロジェクト</p>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-500">並び順:</span>
+                    <select id="sortFilter" class="text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-2 focus:ring-wa-indigo">
+                        <option value="newest">新着順</option>
+                        <option value="goal">目標金額順</option>
+                        <option value="progress">達成率順</option>
+                        <option value="remaining">残り日数順</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="projectListings" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="福岡県" data-category="カフェ・レストラン" data-goal="80万円">
+                    <div class="h-48 bg-gradient-to-r from-red-200 to-red-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-red/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家カフェの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の古民家カフェ「結」</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed text-sm">築80年の古民家を地域の交流拠点となるカフェに再生。地元食材を使った料理で地域の魅力を発信します。</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>達成率</span>
+                                <span>72%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-wa-red h-2 rounded-full" style="width: 72%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm mb-4">
+                            <div>
+                                <p class="font-bold text-wa-red">58万円</p>
+                                <p class="text-gray-500">現在の支援額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-dark">80万円</p>
+                                <p class="text-gray-500">目標金額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-wa-orange">15日</p>
+                                <p class="text-gray-500">残り日数</p>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-gray-500 mb-4">
+                            <p>• 支援者数：42人</p>
+                            <p>• リターン：地元野菜セット、カフェ利用券など</p>
+                        </div>
+
+                        <button class="w-full bg-wa-red text-white py-3 rounded-lg font-bold hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            このプロジェクトを支援する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="京都府" data-category="宿泊施設" data-goal="150万円">
+                    <div class="h-48 bg-gradient-to-r from-purple-200 to-purple-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-indigo/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">京町家ゲストハウスの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            京都府京都市
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">京町家ゲストハウス「和心」</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed text-sm">築100年の京町家を外国人観光客向けゲストハウスに。日本文化体験プログラムも提供します。</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>達成率</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-wa-indigo h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm mb-4">
+                            <div>
+                                <p class="font-bold text-wa-indigo">68万円</p>
+                                <p class="text-gray-500">現在の支援額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-dark">150万円</p>
+                                <p class="text-gray-500">目標金額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-wa-orange">28日</p>
+                                <p class="text-gray-500">残り日数</p>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-gray-500 mb-4">
+                            <p>• 支援者数：31人</p>
+                            <p>• リターン：宿泊券、茶道体験、京都案内など</p>
+                        </div>
+
+                        <button class="w-full bg-wa-indigo text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                            このプロジェクトを支援する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="長野県" data-category="体験工房" data-goal="120万円">
+                    <div class="h-48 bg-gradient-to-r from-green-200 to-green-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-green/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">陶芸体験工房の写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            長野県松本市
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">信州陶芸工房「土の音」</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed text-sm">古民家を陶芸体験工房に改装。地元の土を使った作品作りで信州の魅力を伝えます。</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>達成率</span>
+                                <span>89%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-wa-green h-2 rounded-full" style="width: 89%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm mb-4">
+                            <div>
+                                <p class="font-bold text-wa-green">107万円</p>
+                                <p class="text-gray-500">現在の支援額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-dark">120万円</p>
+                                <p class="text-gray-500">目標金額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-wa-orange">8日</p>
+                                <p class="text-gray-500">残り日数</p>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-gray-500 mb-4">
+                            <p>• 支援者数：67人</p>
+                            <p>• リターン：陶芸体験券、オリジナル作品など</p>
+                        </div>
+
+                        <button class="w-full bg-wa-green text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            このプロジェクトを支援する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="島根県" data-category="コワーキング" data-goal="200万円">
+                    <div class="h-48 bg-gradient-to-r from-blue-200 to-blue-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-indigo/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家コワーキングの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            島根県出雲市
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">出雲コワーキング「縁」</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed text-sm">古民家をリモートワーカー向けコワーキングスペースに。地域と都市をつなぐ拠点を作ります。</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>達成率</span>
+                                <span>34%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 34%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm mb-4">
+                            <div>
+                                <p class="font-bold text-blue-500">68万円</p>
+                                <p class="text-gray-500">現在の支援額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-dark">200万円</p>
+                                <p class="text-gray-500">目標金額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-wa-orange">35日</p>
+                                <p class="text-gray-500">残り日数</p>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-gray-500 mb-4">
+                            <p>• 支援者数：28人</p>
+                            <p>• リターン：利用券、地域特産品、ワーケーション体験など</p>
+                        </div>
+
+                        <button class="w-full bg-blue-500 text-white py-3 rounded-lg font-bold hover:bg-blue-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            このプロジェクトを支援する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="福岡県" data-category="ショップ" data-goal="60万円">
+                    <div class="h-48 bg-gradient-to-r from-yellow-200 to-yellow-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-gold/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家ショップの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川家具ショップ「匠」</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed text-sm">伝統工芸品の大川家具を展示販売するショップ。職人の技術を次世代に継承します。</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>達成率</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-wa-gold h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm mb-4">
+                            <div>
+                                <p class="font-bold text-wa-gold">57万円</p>
+                                <p class="text-gray-500">現在の支援額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-dark">60万円</p>
+                                <p class="text-gray-500">目標金額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-wa-orange">3日</p>
+                                <p class="text-gray-500">残り日数</p>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-gray-500 mb-4">
+                            <p>• 支援者数：89人</p>
+                            <p>• リターン：家具割引券、職人体験、オーダーメイド家具など</p>
+                        </div>
+
+                        <button class="w-full bg-wa-gold text-white py-3 rounded-lg font-bold hover:bg-yellow-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            このプロジェクトを支援する
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project Card 6 -->
+                <div class="project-card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2" data-region="長野県" data-category="カフェ・レストラン" data-goal="90万円">
+                    <div class="h-48 bg-gradient-to-r from-orange-200 to-orange-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-orange/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家レストランの写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            長野県安曇野市
+                        </div>
+                        <h3 class="text-xl font-wa-serif font-bold text-text-dark mb-2">安曇野農家レストラン「実り」</h3>
+                        <p class="text-gray-600 mb-4 leading-relaxed text-sm">古民家を農家レストランに改装。地元野菜を使った料理で安曇野の豊かさを表現します。</p>
+                        
+                        <!-- Progress Bar -->
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm text-gray-600 mb-1">
+                                <span>達成率</span>
+                                <span>67%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-wa-orange h-2 rounded-full" style="width: 67%"></div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-3 gap-4 text-center text-sm mb-4">
+                            <div>
+                                <p class="font-bold text-wa-orange">60万円</p>
+                                <p class="text-gray-500">現在の支援額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-text-dark">90万円</p>
+                                <p class="text-gray-500">目標金額</p>
+                            </div>
+                            <div>
+                                <p class="font-bold text-wa-orange">22日</p>
+                                <p class="text-gray-500">残り日数</p>
+                            </div>
+                        </div>
+
+                        <div class="text-xs text-gray-500 mb-4">
+                            <p>• 支援者数：45人</p>
+                            <p>• リターン：食事券、野菜セット、料理教室参加券など</p>
+                        </div>
+
+                        <button class="w-full bg-wa-orange text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg">
+                            このプロジェクトを支援する
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button class="bg-wa-indigo text-white px-8 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                    さらに読み込む
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-6 h-6 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        <h5 class="font-wa-serif font-bold">全国空き家再生プラットフォーム</h5>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">空き家と起業家をつなぐ、新しいまちづくりプラットフォーム</p>
+                </div>
+                <div>
+                    <h6 class="font-wa-serif font-bold mb-4">起業家向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-wa-red transition-colors">始め方</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">成功事例</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">サポート体制</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-wa-serif font-bold mb-4">自治体向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-wa-red transition-colors">案件登録</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">補助金制度</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">導入相談</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-wa-serif font-bold mb-4">支援者向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-wa-red transition-colors">クラウドファンディング</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">地域コミュニティ</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors">地域への影響</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 全国空き家再生プラットフォーム. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // フィルター機能
+        function filterProjects() {
+            const region = document.getElementById('regionFilter').value;
+            const category = document.getElementById('categoryFilter').value;
+            const goal = document.getElementById('goalFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            let visibleCount = 0;
+            
+            projectCards.forEach(card => {
+                const cardRegion = card.getAttribute('data-region');
+                const cardCategory = card.getAttribute('data-category');
+                const cardGoal = card.getAttribute('data-goal');
+                const cardText = card.textContent.toLowerCase();
+                
+                let show = true;
+                
+                if (region && cardRegion !== region) show = false;
+                if (category && cardCategory !== category) show = false;
+                if (goal && !matchesGoalFilter(cardGoal, goal)) show = false;
+                if (search && !cardText.includes(search)) show = false;
+                
+                if (show) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            
+            document.getElementById('resultCount').textContent = `全 ${visibleCount} 件のプロジェクト`;
+        }
+        
+        function matchesGoalFilter(cardGoal, filterGoal) {
+            const goalAmount = parseInt(cardGoal.replace('万円', ''));
+            
+            switch (filterGoal) {
+                case '50万円以下':
+                    return goalAmount <= 50;
+                case '100万円以下':
+                    return goalAmount <= 100;
+                case '200万円以下':
+                    return goalAmount <= 200;
+                case '200万円以上':
+                    return goalAmount >= 200;
+                default:
+                    return true;
+            }
+        }
+        
+        // ソート機能
+        function sortProjects() {
+            const sortBy = document.getElementById('sortFilter').value;
+            const container = document.getElementById('projectListings');
+            const cards = Array.from(container.querySelectorAll('.project-card'));
+            
+            cards.sort((a, b) => {
+                switch (sortBy) {
+                    case 'newest':
+                        return 0; // デフォルト順序を維持
+                    case 'goal':
+                        const aGoal = parseInt(a.getAttribute('data-goal').replace('万円', ''));
+                        const bGoal = parseInt(b.getAttribute('data-goal').replace('万円', ''));
+                        return bGoal - aGoal;
+                    case 'progress':
+                        const aProgress = parseInt(a.querySelector('.bg-wa-red, .bg-wa-indigo, .bg-wa-green, .bg-blue-500, .bg-wa-gold, .bg-wa-orange').style.width);
+                        const bProgress = parseInt(b.querySelector('.bg-wa-red, .bg-wa-indigo, .bg-wa-green, .bg-blue-500, .bg-wa-gold, .bg-wa-orange').style.width);
+                        return bProgress - aProgress;
+                    case 'remaining':
+                        const aRemaining = parseInt(a.querySelector('.text-wa-orange').textContent);
+                        const bRemaining = parseInt(b.querySelector('.text-wa-orange').textContent);
+                        return aRemaining - bRemaining;
+                    default:
+                        return 0;
+                }
+            });
+            
+            cards.forEach(card => container.appendChild(card));
+        }
+        
+        // イベントリスナー
+        document.getElementById('regionFilter').addEventListener('change', filterProjects);
+        document.getElementById('categoryFilter').addEventListener('change', filterProjects);
+        document.getElementById('goalFilter').addEventListener('change', filterProjects);
+        document.getElementById('searchInput').addEventListener('input', filterProjects);
+        document.getElementById('sortFilter').addEventListener('change', sortProjects);
+        
+        // 初期表示
+        filterProjects();
+    </script>
+</body>
+</html>
