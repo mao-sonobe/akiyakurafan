@@ -120,33 +120,87 @@
     </section>
 
     <!-- Cases Section -->
-    <section class="py-24 bg-gradient-to-b from-gray-50 to-gray-100">
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-gray-100" id="cases">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h3 class="text-3xl md:text-4xl font-wa-serif font-bold text-center text-text-dark mb-6" id="cases-title">
                 募集中の空き家案件
             </h3>
-            <p class="text-center text-gray-600 mb-20 text-lg font-medium" id="cases-subtitle">
-                福岡県大川市 藩境のまち - 伝統工芸と歴史が息づく地域
+            <p class="text-center text-gray-600 mb-4 text-lg font-medium" id="cases-subtitle">
+                全国の自治体から寄せられた空き家再生案件
             </p>
+            
+            <!-- 地域紹介セクション -->
+            <div class="bg-gradient-to-r from-wa-brown/10 to-wa-gold/10 rounded-2xl p-8 mb-16 border border-wa-brown/20">
+                <div class="text-center mb-8">
+                    <h4 class="text-2xl font-wa-serif font-bold text-text-dark mb-4">今月の注目地域：福岡県大川市</h4>
+                    <p class="text-gray-700 text-lg font-medium">藩境のまち - 伝統工芸と歴史が息づく地域</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 text-center">
+                    <div class="bg-white/70 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="w-12 h-12 bg-wa-brown text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4Z"/>
+                            </svg>
+                        </div>
+                        <h5 class="font-wa-serif font-bold text-text-dark mb-2">伝統工芸の里</h5>
+                        <p class="text-gray-600 text-sm">400年の歴史を持つ家具づくりの技術が受け継がれています</p>
+                    </div>
+                    <div class="bg-white/70 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="w-12 h-12 bg-wa-indigo text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                        </div>
+                        <h5 class="font-wa-serif font-bold text-text-dark mb-2">水郷の風景</h5>
+                        <p class="text-gray-600 text-sm">筑後川の恵みと美しい水辺の景観が魅力です</p>
+                    </div>
+                    <div class="bg-white/70 rounded-xl p-6 backdrop-blur-sm">
+                        <div class="w-12 h-12 bg-wa-green text-white rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z"/>
+                            </svg>
+                        </div>
+                        <h5 class="font-wa-serif font-bold text-text-dark mb-2">豊かな食文化</h5>
+                        <p class="text-gray-600 text-sm">新鮮な川魚料理と地元の農産物が自慢です</p>
+                    </div>
+                </div>
+            </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Case 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2 group">
                     <div class="h-48 bg-gradient-to-r from-red-200 to-red-300 flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-wa-red/20 to-transparent"></div>
                         <span class="text-gray-700 text-sm font-medium relative z-10">古民家の写真</span>
                     </div>
                     <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金あり</span>
                             <span class="bg-wa-indigo text-white px-3 py-1 rounded-full text-sm font-medium">起業募集</span>
                         </div>
-                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川市 藩境の古民家</h4>
+                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の古民家カフェ</h4>
                         <p class="text-gray-600 mb-4 leading-relaxed">築80年の趣ある古民家をカフェに再生</p>
                         <div class="text-sm text-gray-500 mb-4">
-                            <p>補助率：回収費用の70%（上限500万円）</p>
+                            <p>補助率：改修費用の70%（上限500万円）</p>
                             <p>賃料：月3万円（3年間半額）</p>
                         </div>
+                        
+                        <!-- クラウドファンディング返礼品 -->
+                        <div class="bg-gradient-to-r from-wa-gold/10 to-wa-orange/10 rounded-lg p-4 mb-4 border border-wa-gold/20">
+                            <h6 class="font-wa-serif font-bold text-sm text-text-dark mb-2">🎁 クラウドファンディング返礼品</h6>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <p>• 地元食材を使った特製ランチセット</p>
+                                <p>• 大川家具職人による手作り小物</p>
+                                <p>• カフェオープン記念コーヒー豆セット</p>
+                            </div>
+                        </div>
+                        
                         <div class="space-y-3">
                             <button class="w-full bg-wa-red text-white py-3 rounded-lg font-bold hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                 応募する
@@ -162,22 +216,39 @@
                 </div>
 
                 <!-- Case 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2 group">
                     <div class="h-48 bg-gradient-to-r from-orange-200 to-orange-300 flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-wa-orange/20 to-transparent"></div>
                         <span class="text-gray-700 text-sm font-medium relative z-10">町家の写真</span>
                     </div>
                     <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金あり</span>
                             <span class="bg-wa-green text-white px-3 py-1 rounded-full text-sm font-medium">運営者募集</span>
                         </div>
-                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川市 藩境の町家</h4>
+                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の町家ゲストハウス</h4>
                         <p class="text-gray-600 mb-4 leading-relaxed">歴史ある町家をゲストハウスに再生</p>
                         <div class="text-sm text-gray-500 mb-4">
-                            <p>補助率：回収費用の60%（上限300万円）</p>
+                            <p>補助率：改修費用の60%（上限300万円）</p>
                             <p>賃料：月5万円（2年間半額）</p>
                         </div>
+                        
+                        <!-- クラウドファンディング返礼品 -->
+                        <div class="bg-gradient-to-r from-wa-indigo/10 to-wa-green/10 rounded-lg p-4 mb-4 border border-wa-indigo/20">
+                            <h6 class="font-wa-serif font-bold text-sm text-text-dark mb-2">🎁 クラウドファンディング返礼品</h6>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <p>• 1泊2日の町家宿泊体験券</p>
+                                <p>• 筑後川舟下り＋地元料理セット</p>
+                                <p>• 大川の伝統工芸品（組子細工）</p>
+                            </div>
+                        </div>
+                        
                         <div class="space-y-3">
                             <button class="w-full bg-wa-orange text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                 応募する
@@ -193,18 +264,24 @@
                 </div>
 
                 <!-- Case 3 - Featured -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-wa-gold hover:-translate-y-2">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-wa-gold hover:-translate-y-2 group">
                     <div class="h-48 bg-gradient-to-r from-yellow-200 to-yellow-300 flex items-center justify-center relative">
                         <div class="absolute inset-0 bg-gradient-to-br from-wa-gold/20 to-transparent"></div>
                         <span class="text-gray-700 text-sm font-medium relative z-10">廃倉庫の写真</span>
                     </div>
                     <div class="p-6">
+                        <div class="flex items-center text-sm text-gray-500 mb-3">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22S19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                            </svg>
+                            福岡県大川市
+                        </div>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金あり</span>
                             <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">体験工房</span>
                             <span class="bg-wa-green text-white px-3 py-1 rounded-full text-sm font-medium">設備一部提供</span>
                         </div>
-                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川市 藩境の廃倉庫</h4>
+                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">藩境の木工体験工房</h4>
                         <p class="text-gray-600 mb-4 leading-relaxed">家具づくり・木工体験の拠点。初期工具は自治体・地域協賛で導入、低リスクで開始可能</p>
                         <div class="text-sm text-gray-500 mb-6">
                             <p>補助率：回収費用の80%（上限400万円）</p>
@@ -222,6 +299,20 @@
                             </button>
                         </div>
                     </div>
+                </div>
+            </div>
+            
+            <!-- 他の自治体への案内 -->
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-wa-indigo/10 to-wa-green/10 rounded-2xl p-8 border border-wa-indigo/20">
+                    <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-4">全国の自治体の皆様へ</h4>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        あなたの地域の空き家も、起業家とのマッチングで新たな価値を生み出しませんか？<br>
+                        補助金制度と組み合わせることで、低リスクでの地域活性化が実現できます。
+                    </p>
+                    <button class="bg-wa-indigo text-white px-8 py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
+                        案件掲載のご相談
+                    </button>
                 </div>
             </div>
         </div>
