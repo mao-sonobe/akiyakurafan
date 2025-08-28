@@ -10,37 +10,43 @@
             theme: {
                 extend: {
                     colors: {
-                        'warm-orange': '#FF6B35',
-                        'warm-red': '#F7931E',
-                        'warm-yellow': '#FFD23F',
-                        'accent-blue': '#2563EB',
-                        'text-dark': '#1F2937'
+                        'wa-red': '#C53030',
+                        'wa-orange': '#DD6B20',
+                        'wa-gold': '#D69E2E',
+                        'wa-green': '#38A169',
+                        'wa-indigo': '#4C51BF',
+                        'wa-brown': '#8B4513',
+                        'text-dark': '#2D3748'
+                    },
+                    fontFamily: {
+                        'wa-serif': ['Georgia', 'serif'],
+                        'wa-sans': ['Hiragino Sans', 'Yu Gothic', 'Meiryo', 'sans-serif']
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="font-sans bg-gray-50">
+<body class="font-wa-sans bg-gradient-to-b from-gray-50 to-gray-100">
     <!-- Header -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center space-x-2">
-                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                     </svg>
-                    <h1 class="text-xl font-bold text-text-dark" id="site-title">全国空き家再生プラットフォーム</h1>
+                    <h1 class="text-xl font-wa-serif font-bold text-text-dark tracking-wide" id="site-title">全国空き家再生プラットフォーム</h1>
                 </div>
                 <div class="flex items-center space-x-4">
                     <nav class="hidden md:flex space-x-6">
-                        <a href="#" class="text-gray-700 hover:text-warm-orange transition-colors" id="nav-about">プラットフォームについて</a>
-                        <a href="#" class="text-gray-700 hover:text-warm-orange transition-colors" id="nav-cases">案件一覧</a>
-                        <a href="#" class="text-gray-700 hover:text-warm-orange transition-colors" id="nav-support">サポート</a>
+                        <a href="#" class="text-gray-700 hover:text-wa-red transition-colors font-medium" id="nav-about">プラットフォームについて</a>
+                        <a href="#" class="text-gray-700 hover:text-wa-red transition-colors font-medium" id="nav-cases">案件一覧</a>
+                        <a href="#" class="text-gray-700 hover:text-wa-red transition-colors font-medium" id="nav-support">サポート</a>
                     </nav>
                     <div class="flex space-x-2">
-                        <button onclick="switchLanguage('ja')" class="px-3 py-1 text-sm bg-warm-orange text-white rounded" id="lang-ja">日</button>
-                        <button onclick="switchLanguage('en')" class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded" id="lang-en">英</button>
+                        <button onclick="switchLanguage('ja')" class="px-3 py-1 text-sm bg-wa-red text-white rounded-md font-medium" id="lang-ja">日</button>
+                        <button onclick="switchLanguage('en')" class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-md font-medium" id="lang-en">英</button>
                     </div>
                 </div>
             </div>
@@ -48,19 +54,22 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-br from-warm-orange via-warm-red to-warm-yellow py-20">
+    <section class="bg-gradient-to-br from-wa-red via-wa-orange to-wa-gold py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 translate-x-48"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-32 -translate-x-32"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6" id="hero-title">
+            <h2 class="text-4xl md:text-6xl font-wa-serif font-bold text-white mb-8 leading-tight relative z-10" id="hero-title">
                 初期投資を抑えて、<br>低リスクで夢をカタチに
             </h2>
-            <p class="text-xl md:text-2xl text-white/90 mb-8" id="hero-subtitle">
+            <p class="text-xl md:text-2xl text-white/95 mb-10 font-medium relative z-10" id="hero-subtitle">
                 自治体の補助金＋クラウドファンディングで、空き家を未来の拠点に
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-warm-orange px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg" id="hero-cta1">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                <button class="bg-white text-wa-red px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1" id="hero-cta1">
                     起業に応募する
                 </button>
-                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors" id="hero-cta2">
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all duration-300 backdrop-blur-sm" id="hero-cta2">
                     クラウドファンディングに参加
                 </button>
             </div>
@@ -68,83 +77,84 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-20 bg-white">
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl md:text-4xl font-bold text-center text-text-dark mb-16" id="benefits-title">
+            <h3 class="text-3xl md:text-4xl font-wa-serif font-bold text-center text-text-dark mb-20" id="benefits-title">
                 なぜ低リスクで起業できるのか
             </h3>
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Benefit 1 -->
-                <div class="text-center p-8 bg-gradient-to-b from-orange-50 to-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                    <div class="bg-warm-orange w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="text-center p-8 bg-gradient-to-b from-red-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-red-100 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-wa-red to-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-text-dark mb-4" id="benefit1-title">補助金で初期費用を軽減</h4>
-                    <p class="text-gray-600" id="benefit1-desc">自治体の空き家再生補助金で、改修費用をサポート。手持ち資金が少なくても始められます。</p>
+                    <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-4" id="benefit1-title">補助金で初期費用を軽減</h4>
+                    <p class="text-gray-600 leading-relaxed" id="benefit1-desc">自治体の空き家再生補助金で、改修費用をサポート。手持ち資金が少なくても始められます。</p>
                 </div>
 
                 <!-- Benefit 2 -->
-                <div class="text-center p-8 bg-gradient-to-b from-red-50 to-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                    <div class="bg-warm-red w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="text-center p-8 bg-gradient-to-b from-orange-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-100 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-wa-orange to-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M16 7C16 9.2 14.2 11 12 11S8 9.2 8 7s1.8-4 4-4 4 1.8 4 4zM12 14c-3.3 0-6 2.7-6 6v1h12v-1c0-3.3-2.7-6-6-6z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-text-dark mb-4" id="benefit2-title">クラウドファンディングで地域と挑戦</h4>
-                    <p class="text-gray-600" id="benefit2-desc">地域住民や支援者からの応援で資金調達。事業開始前に顧客基盤も作れます。</p>
+                    <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-4" id="benefit2-title">クラウドファンディングで地域と挑戦</h4>
+                    <p class="text-gray-600 leading-relaxed" id="benefit2-desc">地域住民や支援者からの応援で資金調達。事業開始前に顧客基盤も作れます。</p>
                 </div>
 
                 <!-- Benefit 3 -->
-                <div class="text-center p-8 bg-gradient-to-b from-yellow-50 to-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
-                    <div class="bg-warm-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div class="text-center p-8 bg-gradient-to-b from-yellow-50 to-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-yellow-100 hover:-translate-y-2">
+                    <div class="bg-gradient-to-br from-wa-gold to-yellow-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-text-dark mb-4" id="benefit3-title">低リスクで安心スタート</h4>
-                    <p class="text-gray-600" id="benefit3-desc">自治体サポート付きで事業開始。地域との繋がりがあるため、失敗リスクを大幅に軽減できます。</p>
+                    <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-4" id="benefit3-title">低リスクで安心スタート</h4>
+                    <p class="text-gray-600 leading-relaxed" id="benefit3-desc">自治体サポート付きで事業開始。地域との繋がりがあるため、失敗リスクを大幅に軽減できます。</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Cases Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-24 bg-gradient-to-b from-gray-50 to-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl md:text-4xl font-bold text-center text-text-dark mb-4" id="cases-title">
+            <h3 class="text-3xl md:text-4xl font-wa-serif font-bold text-center text-text-dark mb-6" id="cases-title">
                 募集中の空き家案件
             </h3>
-            <p class="text-center text-gray-600 mb-16 text-lg" id="cases-subtitle">
+            <p class="text-center text-gray-600 mb-20 text-lg font-medium" id="cases-subtitle">
                 福岡県大川市 藩境のまち - 伝統工芸と歴史が息づく地域
             </p>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Case 1 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-gradient-to-r from-orange-200 to-orange-300 flex items-center justify-center">
-                        <span class="text-gray-600 text-sm">古民家の写真</span>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-r from-red-200 to-red-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-red/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">古民家の写真</span>
                     </div>
                     <div class="p-6">
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-warm-orange text-white px-3 py-1 rounded-full text-sm">補助金あり</span>
-                            <span class="bg-accent-blue text-white px-3 py-1 rounded-full text-sm">起業募集</span>
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金あり</span>
+                            <span class="bg-wa-indigo text-white px-3 py-1 rounded-full text-sm font-medium">起業募集</span>
                         </div>
-                        <h4 class="text-xl font-bold text-text-dark mb-2">大川市 藩境の古民家</h4>
-                        <p class="text-gray-600 mb-4">築80年の趣ある古民家をカフェに再生</p>
+                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川市 藩境の古民家</h4>
+                        <p class="text-gray-600 mb-4 leading-relaxed">築80年の趣ある古民家をカフェに再生</p>
                         <div class="text-sm text-gray-500 mb-4">
                             <p>補助率：回収費用の70%（上限500万円）</p>
                             <p>賃料：月3万円（3年間半額）</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="w-full bg-warm-orange text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors">
+                            <button class="w-full bg-wa-red text-white py-3 rounded-lg font-bold hover:bg-red-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                 応募する
                             </button>
-                            <button class="w-full bg-accent-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                            <button class="w-full bg-wa-indigo text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
                                 クラウドファンディングに参加
                             </button>
-                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
+                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-all duration-300">
                                 地域食材定期便予約
                             </button>
                         </div>
@@ -152,29 +162,30 @@
                 </div>
 
                 <!-- Case 2 -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                    <div class="h-48 bg-gradient-to-r from-red-200 to-red-300 flex items-center justify-center">
-                        <span class="text-gray-600 text-sm">町家の写真</span>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-200 hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-r from-orange-200 to-orange-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-orange/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">町家の写真</span>
                     </div>
                     <div class="p-6">
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-warm-orange text-white px-3 py-1 rounded-full text-sm">補助金あり</span>
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">運営者募集</span>
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金あり</span>
+                            <span class="bg-wa-green text-white px-3 py-1 rounded-full text-sm font-medium">運営者募集</span>
                         </div>
-                        <h4 class="text-xl font-bold text-text-dark mb-2">大川市 藩境の町家</h4>
-                        <p class="text-gray-600 mb-4">歴史ある町家をゲストハウスに再生</p>
+                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川市 藩境の町家</h4>
+                        <p class="text-gray-600 mb-4 leading-relaxed">歴史ある町家をゲストハウスに再生</p>
                         <div class="text-sm text-gray-500 mb-4">
                             <p>補助率：回収費用の60%（上限300万円）</p>
                             <p>賃料：月5万円（2年間半額）</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="w-full bg-warm-red text-white py-3 rounded-lg font-bold hover:bg-red-600 transition-colors">
+                            <button class="w-full bg-wa-orange text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                 応募する
                             </button>
-                            <button class="w-full bg-accent-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                            <button class="w-full bg-wa-indigo text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
                                 クラウドファンディングに参加
                             </button>
-                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
+                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-all duration-300">
                                 宿泊体験予約
                             </button>
                         </div>
@@ -182,30 +193,31 @@
                 </div>
 
                 <!-- Case 3 - Featured -->
-                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-warm-yellow">
-                    <div class="h-48 bg-gradient-to-r from-yellow-200 to-yellow-300 flex items-center justify-center">
-                        <span class="text-gray-600 text-sm">廃倉庫の写真</span>
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-wa-gold hover:-translate-y-2">
+                    <div class="h-48 bg-gradient-to-r from-yellow-200 to-yellow-300 flex items-center justify-center relative">
+                        <div class="absolute inset-0 bg-gradient-to-br from-wa-gold/20 to-transparent"></div>
+                        <span class="text-gray-700 text-sm font-medium relative z-10">廃倉庫の写真</span>
                     </div>
                     <div class="p-6">
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-warm-orange text-white px-3 py-1 rounded-full text-sm">補助金あり</span>
-                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">体験工房</span>
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">設備一部提供</span>
+                            <span class="bg-wa-red text-white px-3 py-1 rounded-full text-sm font-medium">補助金あり</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm font-medium">体験工房</span>
+                            <span class="bg-wa-green text-white px-3 py-1 rounded-full text-sm font-medium">設備一部提供</span>
                         </div>
-                        <h4 class="text-xl font-bold text-text-dark mb-2">大川市 藩境の廃倉庫</h4>
-                        <p class="text-gray-600 mb-4">家具づくり・木工体験の拠点。初期工具は自治体・地域協賛で導入、低リスクで開始可能</p>
+                        <h4 class="text-xl font-wa-serif font-bold text-text-dark mb-2">大川市 藩境の廃倉庫</h4>
+                        <p class="text-gray-600 mb-4 leading-relaxed">家具づくり・木工体験の拠点。初期工具は自治体・地域協賛で導入、低リスクで開始可能</p>
                         <div class="text-sm text-gray-500 mb-6">
                             <p>補助率：回収費用の80%（上限400万円）</p>
                             <p>賃料：月4万円（工具・設備込み）</p>
                         </div>
                         <div class="space-y-3">
-                            <button class="w-full bg-warm-yellow text-white py-3 rounded-lg font-bold hover:bg-yellow-500 transition-colors">
+                            <button class="w-full bg-wa-gold text-white py-3 rounded-lg font-bold hover:bg-yellow-600 transition-all duration-300 shadow-md hover:shadow-lg">
                                 応募する
                             </button>
-                            <button class="w-full bg-accent-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                            <button class="w-full bg-wa-indigo text-white py-3 rounded-lg font-bold hover:bg-indigo-700 transition-all duration-300 shadow-md hover:shadow-lg">
                                 クラウドファンディングに参加
                             </button>
-                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
+                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-all duration-300">
                                 体験予約（デモ）
                             </button>
                         </div>
@@ -216,100 +228,103 @@
     </section>
 
     <!-- Flow Section -->
-    <section class="py-20 bg-white">
+    <section class="py-24 bg-gradient-to-b from-white to-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl md:text-4xl font-bold text-center text-text-dark mb-16" id="flow-title">
+            <h3 class="text-3xl md:text-4xl font-wa-serif font-bold text-center text-text-dark mb-20" id="flow-title">
                 空き家再生のステップ
             </h3>
             <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
                 <!-- Step 1 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-b from-gray-100 to-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="bg-gradient-to-b from-gray-100 to-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg border border-gray-300">
                         <svg class="w-10 h-10 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step1-title">空き家</h4>
-                    <p class="text-gray-600 text-sm" id="step1-desc">活用されていない物件</p>
+                    <h4 class="font-wa-serif font-bold text-lg text-text-dark mb-2" id="step1-title">空き家</h4>
+                    <p class="text-gray-600 text-sm font-medium" id="step1-desc">活用されていない物件</p>
                 </div>
 
                 <!-- Arrow 1 -->
                 <div class="transform rotate-90 md:rotate-0">
-                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
                     </svg>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-b from-warm-orange to-warm-red w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="bg-gradient-to-b from-wa-red to-wa-orange w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M11.8,10.9C9.53,10.31 8.8,9.7 8.8,8.75C8.8,7.66 9.81,6.9 11.5,6.9C13.28,6.9 13.94,7.75 14,9H16.21C16.14,7.28 15.09,5.7 13,5.19V3H10V5.16C8.06,5.58 6.5,6.84 6.5,8.77C6.5,11.08 8.41,12.23 11.2,12.9C13.7,13.5 14.2,14.38 14.2,15.31C14.2,16 13.71,17.1 11.5,17.1C9.44,17.1 8.63,16.18 8.5,15H6.32C6.44,17.19 8.08,18.42 10,18.83V21H13V18.85C14.95,18.5 16.5,17.35 16.5,15.3C16.5,12.46 14.07,11.5 11.8,10.9Z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step2-title">補助金＋クラファン</h4>
-                    <p class="text-gray-600 text-sm" id="step2-desc">資金調達と支援者獲得</p>
+                    <h4 class="font-wa-serif font-bold text-lg text-text-dark mb-2" id="step2-title">補助金＋クラファン</h4>
+                    <p class="text-gray-600 text-sm font-medium" id="step2-desc">資金調達と支援者獲得</p>
                 </div>
 
                 <!-- Arrow 2 -->
                 <div class="transform rotate-90 md:rotate-0">
-                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
                     </svg>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-b from-warm-yellow to-orange-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="bg-gradient-to-b from-wa-gold to-orange-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step3-title">起業</h4>
-                    <p class="text-gray-600 text-sm" id="step3-desc">低リスクで事業開始</p>
+                    <h4 class="font-wa-serif font-bold text-lg text-text-dark mb-2" id="step3-title">起業</h4>
+                    <p class="text-gray-600 text-sm font-medium" id="step3-desc">低リスクで事業開始</p>
                 </div>
 
                 <!-- Arrow 3 -->
                 <div class="transform rotate-90 md:rotate-0">
-                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
                     </svg>
                 </div>
 
                 <!-- Step 4 -->
                 <div class="text-center">
-                    <div class="bg-gradient-to-b from-green-400 to-green-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div class="bg-gradient-to-b from-wa-green to-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg">
                         <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12,18.5C15.5,18.5 19.31,16.69 21.35,12C19.31,7.31 15.5,5.5 12,5.5C8.5,5.5 4.69,7.31 2.65,12C4.69,16.69 8.5,18.5 12,18.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step4-title">地域活性化</h4>
-                    <p class="text-gray-600 text-sm" id="step4-desc">持続可能な地域発展</p>
+                    <h4 class="font-wa-serif font-bold text-lg text-text-dark mb-2" id="step4-title">地域活性化</h4>
+                    <p class="text-gray-600 text-sm font-medium" id="step4-desc">持続可能な地域発展</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-20 bg-gradient-to-r from-warm-orange to-warm-red">
+    <section class="py-24 bg-gradient-to-r from-wa-red to-wa-orange relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full -translate-y-48 -translate-x-48"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full translate-y-32 translate-x-32"></div>
         <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6" id="cta-title">
+            <h3 class="text-3xl md:text-4xl font-wa-serif font-bold text-white mb-8 relative z-10" id="cta-title">
                 あなたの挑戦を地域が支えます
             </h3>
-            <p class="text-xl text-white/90 mb-8" id="cta-subtitle">
+            <p class="text-xl text-white/95 mb-10 font-medium relative z-10" id="cta-subtitle">
                 初期投資を抑えて、安心して事業を始めましょう
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button class="bg-white text-warm-orange px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg" id="cta-main">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+                <button class="bg-white text-wa-red px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-all duration-300 shadow-xl hover:shadow-2xl transform hover:-translate-y-1" id="cta-main">
                     起業に応募する
                 </button>
-                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors" id="cta-crowdfund">
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/20 transition-all duration-300 backdrop-blur-sm" id="cta-crowdfund">
                     クラウドファンディングに参加
                 </button>
             </div>
-            <div class="mt-12 pt-8 border-t border-white/20">
-                <p class="text-white/80 mb-4" id="municipality-text">自治体の方へ</p>
-                <button class="bg-white/20 text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors" id="municipality-cta">
+            <div class="mt-12 pt-8 border-t border-white/20 relative z-10">
+                <p class="text-white/90 mb-4 font-medium" id="municipality-text">自治体の方へ</p>
+                <button class="bg-white/20 text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-all duration-300 backdrop-blur-sm font-medium" id="municipality-cta">
                     案件を登録する
                 </button>
             </div>
@@ -317,40 +332,40 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-gradient-to-b from-gray-900 to-black text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-2 mb-4">
-                        <svg class="w-6 h-6 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-wa-red" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                         </svg>
-                        <h5 class="font-bold" id="footer-title">全国空き家再生プラットフォーム</h5>
+                        <h5 class="font-wa-serif font-bold" id="footer-title">全国空き家再生プラットフォーム</h5>
                     </div>
-                    <p class="text-gray-400 text-sm" id="footer-desc">空き家と起業家をつなぐ、新しいまちづくりプラットフォーム</p>
+                    <p class="text-gray-400 text-sm leading-relaxed" id="footer-desc">空き家と起業家をつなぐ、新しいまちづくりプラットフォーム</p>
                 </div>
                 <div>
-                    <h6 class="font-bold mb-4" id="footer-entrepreneurs">起業家向け</h6>
+                    <h6 class="font-wa-serif font-bold mb-4" id="footer-entrepreneurs">起業家向け</h6>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-howto">始め方</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-success">成功事例</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-support-ent">サポート体制</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-howto">始め方</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-success">成功事例</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-support-ent">サポート体制</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h6 class="font-bold mb-4" id="footer-municipalities">自治体向け</h6>
+                    <h6 class="font-wa-serif font-bold mb-4" id="footer-municipalities">自治体向け</h6>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-registration">案件登録</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-subsidy">補助金制度</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-consultation">導入相談</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-registration">案件登録</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-subsidy">補助金制度</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-consultation">導入相談</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h6 class="font-bold mb-4" id="footer-supporters">支援者向け</h6>
+                    <h6 class="font-wa-serif font-bold mb-4" id="footer-supporters">支援者向け</h6>
                     <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-crowdfunding">クラウドファンディング</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-community">地域コミュニティ</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors" id="footer-impact">地域への影響</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-crowdfunding">クラウドファンディング</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-community">地域コミュニティ</a></li>
+                        <li><a href="#" class="hover:text-wa-red transition-colors" id="footer-impact">地域への影響</a></li>
                     </ul>
                 </div>
             </div>
@@ -467,11 +482,11 @@
             
             // Update button styles
             document.getElementById('lang-ja').className = lang === 'ja' 
-                ? 'px-3 py-1 text-sm bg-warm-orange text-white rounded' 
-                : 'px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded';
+                ? 'px-3 py-1 text-sm bg-wa-red text-white rounded-md font-medium' 
+                : 'px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-md font-medium';
             document.getElementById('lang-en').className = lang === 'en' 
-                ? 'px-3 py-1 text-sm bg-warm-orange text-white rounded' 
-                : 'px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded';
+                ? 'px-3 py-1 text-sm bg-wa-red text-white rounded-md font-medium' 
+                : 'px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-md font-medium';
 
             // Update all text content
             Object.keys(translations[lang]).forEach(id => {
