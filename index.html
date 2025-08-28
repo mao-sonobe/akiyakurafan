@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全国空き家再生プラットフォーム</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'warm-orange': '#FF6B35',
+                        'warm-red': '#F7931E',
+                        'warm-yellow': '#FFD23F',
+                        'accent-blue': '#2563EB',
+                        'text-dark': '#1F2937'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                    </svg>
+                    <h1 class="text-xl font-bold text-text-dark" id="site-title">全国空き家再生プラットフォーム</h1>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#" class="text-gray-700 hover:text-warm-orange transition-colors" id="nav-about">プラットフォームについて</a>
+                        <a href="#" class="text-gray-700 hover:text-warm-orange transition-colors" id="nav-cases">案件一覧</a>
+                        <a href="#" class="text-gray-700 hover:text-warm-orange transition-colors" id="nav-support">サポート</a>
+                    </nav>
+                    <div class="flex space-x-2">
+                        <button onclick="switchLanguage('ja')" class="px-3 py-1 text-sm bg-warm-orange text-white rounded" id="lang-ja">日</button>
+                        <button onclick="switchLanguage('en')" class="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded" id="lang-en">英</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-warm-orange via-warm-red to-warm-yellow py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6" id="hero-title">
+                初期投資を抑えて、<br>低リスクで夢をカタチに
+            </h2>
+            <p class="text-xl md:text-2xl text-white/90 mb-8" id="hero-subtitle">
+                自治体の補助金＋クラウドファンディングで、空き家を未来の拠点に
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-warm-orange px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg" id="hero-cta1">
+                    起業に応募する
+                </button>
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors" id="hero-cta2">
+                    クラウドファンディングに参加
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-text-dark mb-16" id="benefits-title">
+                なぜ低リスクで起業できるのか
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="text-center p-8 bg-gradient-to-b from-orange-50 to-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-warm-orange w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-text-dark mb-4" id="benefit1-title">補助金で初期費用を軽減</h4>
+                    <p class="text-gray-600" id="benefit1-desc">自治体の空き家再生補助金で、改修費用をサポート。手持ち資金が少なくても始められます。</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="text-center p-8 bg-gradient-to-b from-red-50 to-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-warm-red w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M16 7C16 9.2 14.2 11 12 11S8 9.2 8 7s1.8-4 4-4 4 1.8 4 4zM12 14c-3.3 0-6 2.7-6 6v1h12v-1c0-3.3-2.7-6-6-6z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-text-dark mb-4" id="benefit2-title">クラウドファンディングで地域と挑戦</h4>
+                    <p class="text-gray-600" id="benefit2-desc">地域住民や支援者からの応援で資金調達。事業開始前に顧客基盤も作れます。</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="text-center p-8 bg-gradient-to-b from-yellow-50 to-white rounded-2xl shadow-md hover:shadow-lg transition-shadow">
+                    <div class="bg-warm-yellow w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,16.5L6.5,12L7.91,10.59L11,13.67L16.59,8.09L18,9.5L11,16.5Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-text-dark mb-4" id="benefit3-title">低リスクで安心スタート</h4>
+                    <p class="text-gray-600" id="benefit3-desc">自治体サポート付きで事業開始。地域との繋がりがあるため、失敗リスクを大幅に軽減できます。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cases Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-text-dark mb-4" id="cases-title">
+                募集中の空き家案件
+            </h3>
+            <p class="text-center text-gray-600 mb-16 text-lg" id="cases-subtitle">
+                福岡県大川市 藩境のまち - 伝統工芸と歴史が息づく地域
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Case 1 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-orange-200 to-orange-300 flex items-center justify-center">
+                        <span class="text-gray-600 text-sm">古民家の写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-warm-orange text-white px-3 py-1 rounded-full text-sm">補助金あり</span>
+                            <span class="bg-accent-blue text-white px-3 py-1 rounded-full text-sm">起業募集</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-text-dark mb-2">大川市 藩境の古民家</h4>
+                        <p class="text-gray-600 mb-4">築80年の趣ある古民家をカフェに再生</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>補助率：回収費用の70%（上限500万円）</p>
+                            <p>賃料：月3万円（3年間半額）</p>
+                        </div>
+                        <div class="space-y-3">
+                            <button class="w-full bg-warm-orange text-white py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors">
+                                応募する
+                            </button>
+                            <button class="w-full bg-accent-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                                クラウドファンディングに参加
+                            </button>
+                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
+                                地域食材定期便予約
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                    <div class="h-48 bg-gradient-to-r from-red-200 to-red-300 flex items-center justify-center">
+                        <span class="text-gray-600 text-sm">町家の写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-warm-orange text-white px-3 py-1 rounded-full text-sm">補助金あり</span>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">運営者募集</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-text-dark mb-2">大川市 藩境の町家</h4>
+                        <p class="text-gray-600 mb-4">歴史ある町家をゲストハウスに再生</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <p>補助率：回収費用の60%（上限300万円）</p>
+                            <p>賃料：月5万円（2年間半額）</p>
+                        </div>
+                        <div class="space-y-3">
+                            <button class="w-full bg-warm-red text-white py-3 rounded-lg font-bold hover:bg-red-600 transition-colors">
+                                応募する
+                            </button>
+                            <button class="w-full bg-accent-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                                クラウドファンディングに参加
+                            </button>
+                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
+                                宿泊体験予約
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case 3 - Featured -->
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow border-2 border-warm-yellow">
+                    <div class="h-48 bg-gradient-to-r from-yellow-200 to-yellow-300 flex items-center justify-center">
+                        <span class="text-gray-600 text-sm">廃倉庫の写真</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-warm-orange text-white px-3 py-1 rounded-full text-sm">補助金あり</span>
+                            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">体験工房</span>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">設備一部提供</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-text-dark mb-2">大川市 藩境の廃倉庫</h4>
+                        <p class="text-gray-600 mb-4">家具づくり・木工体験の拠点。初期工具は自治体・地域協賛で導入、低リスクで開始可能</p>
+                        <div class="text-sm text-gray-500 mb-6">
+                            <p>補助率：回収費用の80%（上限400万円）</p>
+                            <p>賃料：月4万円（工具・設備込み）</p>
+                        </div>
+                        <div class="space-y-3">
+                            <button class="w-full bg-warm-yellow text-white py-3 rounded-lg font-bold hover:bg-yellow-500 transition-colors">
+                                応募する
+                            </button>
+                            <button class="w-full bg-accent-blue text-white py-3 rounded-lg font-bold hover:bg-blue-700 transition-colors">
+                                クラウドファンディングに参加
+                            </button>
+                            <button class="w-full bg-gray-200 text-gray-700 py-3 rounded-lg font-bold hover:bg-gray-300 transition-colors">
+                                体験予約（デモ）
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flow Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl md:text-4xl font-bold text-center text-text-dark mb-16" id="flow-title">
+                空き家再生のステップ
+            </h3>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-b from-gray-100 to-gray-200 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step1-title">空き家</h4>
+                    <p class="text-gray-600 text-sm" id="step1-desc">活用されていない物件</p>
+                </div>
+
+                <!-- Arrow 1 -->
+                <div class="transform rotate-90 md:rotate-0">
+                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                    </svg>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-b from-warm-orange to-warm-red w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M11.8,10.9C9.53,10.31 8.8,9.7 8.8,8.75C8.8,7.66 9.81,6.9 11.5,6.9C13.28,6.9 13.94,7.75 14,9H16.21C16.14,7.28 15.09,5.7 13,5.19V3H10V5.16C8.06,5.58 6.5,6.84 6.5,8.77C6.5,11.08 8.41,12.23 11.2,12.9C13.7,13.5 14.2,14.38 14.2,15.31C14.2,16 13.71,17.1 11.5,17.1C9.44,17.1 8.63,16.18 8.5,15H6.32C6.44,17.19 8.08,18.42 10,18.83V21H13V18.85C14.95,18.5 16.5,17.35 16.5,15.3C16.5,12.46 14.07,11.5 11.8,10.9Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step2-title">補助金＋クラファン</h4>
+                    <p class="text-gray-600 text-sm" id="step2-desc">資金調達と支援者獲得</p>
+                </div>
+
+                <!-- Arrow 2 -->
+                <div class="transform rotate-90 md:rotate-0">
+                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                    </svg>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-b from-warm-yellow to-orange-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step3-title">起業</h4>
+                    <p class="text-gray-600 text-sm" id="step3-desc">低リスクで事業開始</p>
+                </div>
+
+                <!-- Arrow 3 -->
+                <div class="transform rotate-90 md:rotate-0">
+                    <svg class="w-8 h-8 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                    </svg>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="bg-gradient-to-b from-green-400 to-green-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12,18.5C15.5,18.5 19.31,16.69 21.35,12C19.31,7.31 15.5,5.5 12,5.5C8.5,5.5 4.69,7.31 2.65,12C4.69,16.69 8.5,18.5 12,18.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/>
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg text-text-dark mb-2" id="step4-title">地域活性化</h4>
+                    <p class="text-gray-600 text-sm" id="step4-desc">持続可能な地域発展</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-r from-warm-orange to-warm-red">
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+            <h3 class="text-3xl md:text-4xl font-bold text-white mb-6" id="cta-title">
+                あなたの挑戦を地域が支えます
+            </h3>
+            <p class="text-xl text-white/90 mb-8" id="cta-subtitle">
+                初期投資を抑えて、安心して事業を始めましょう
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="bg-white text-warm-orange px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg" id="cta-main">
+                    起業に応募する
+                </button>
+                <button class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-colors" id="cta-crowdfund">
+                    クラウドファンディングに参加
+                </button>
+            </div>
+            <div class="mt-12 pt-8 border-t border-white/20">
+                <p class="text-white/80 mb-4" id="municipality-text">自治体の方へ</p>
+                <button class="bg-white/20 text-white px-6 py-3 rounded-lg hover:bg-white/30 transition-colors" id="municipality-cta">
+                    案件を登録する
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <svg class="w-6 h-6 text-warm-orange" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                        </svg>
+                        <h5 class="font-bold" id="footer-title">全国空き家再生プラットフォーム</h5>
+                    </div>
+                    <p class="text-gray-400 text-sm" id="footer-desc">空き家と起業家をつなぐ、新しいまちづくりプラットフォーム</p>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-4" id="footer-entrepreneurs">起業家向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-howto">始め方</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-success">成功事例</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-support-ent">サポート体制</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-4" id="footer-municipalities">自治体向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-registration">案件登録</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-subsidy">補助金制度</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-consultation">導入相談</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="font-bold mb-4" id="footer-supporters">支援者向け</h6>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-crowdfunding">クラウドファンディング</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-community">地域コミュニティ</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors" id="footer-impact">地域への影響</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 全国空き家再生プラットフォーム. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            ja: {
+                'site-title': '全国空き家再生プラットフォーム',
+                'nav-about': 'プラットフォームについて',
+                'nav-cases': '案件一覧',
+                'nav-support': 'サポート',
+                'hero-title': '初期投資を抑えて、<br>低リスクで夢をカタチに',
+                'hero-subtitle': '自治体の補助金＋クラウドファンディングで、空き家を未来の拠点に',
+                'hero-cta1': '起業に応募する',
+                'hero-cta2': 'クラウドファンディングに参加',
+                'benefits-title': 'なぜ低リスクで起業できるのか',
+                'benefit1-title': '補助金で初期費用を軽減',
+                'benefit1-desc': '自治体の空き家再生補助金で、回収費用の50〜80%をサポート。手持ち資金が少なくても始められます。',
+                'benefit2-title': 'クラウドファンディングで地域と挑戦',
+                'benefit2-desc': '地域住民や支援者からの応援で資金調達。事業開始前に顧客基盤も作れます。',
+                'benefit3-title': '低リスクで安心スタート',
+                'benefit3-desc': '自治体サポート付きで事業開始。地域との繋がりがあるため、失敗リスクを大幅に軽減できます。',
+                'cases-title': '募集中の空き家案件',
+                'cases-subtitle': '福岡県大川市 藩境のまち - 伝統工芸と歴史が息づく地域',
+                'flow-title': '空き家再生のステップ',
+                'step1-title': '空き家',
+                'step1-desc': '活用されていない物件',
+                'step2-title': '補助金＋クラファン',
+                'step2-desc': '資金調達と支援者獲得',
+                'step3-title': '起業',
+                'step3-desc': '低リスクで事業開始',
+                'step4-title': '地域活性化',
+                'step4-desc': '持続可能な地域発展',
+                'cta-title': 'あなたの挑戦を地域が支えます',
+                'cta-subtitle': '初期投資を抑えて、安心して事業を始めましょう',
+                'cta-main': '起業に応募する',
+                'cta-crowdfund': 'クラウドファンディングに参加',
+                'municipality-text': '自治体の方へ',
+                'municipality-cta': '案件を登録する',
+                'footer-title': '全国空き家再生プラットフォーム',
+                'footer-desc': '空き家と起業家をつなぐ、新しいまちづくりプラットフォーム',
+                'footer-entrepreneurs': '起業家向け',
+                'footer-howto': '始め方',
+                'footer-success': '成功事例',
+                'footer-support-ent': 'サポート体制',
+                'footer-municipalities': '自治体向け',
+                'footer-registration': '案件登録',
+                'footer-subsidy': '補助金制度',
+                'footer-consultation': '導入相談',
+                'footer-supporters': '支援者向け',
+                'footer-crowdfunding': 'クラウドファンディング',
+                'footer-community': '地域コミュニティ',
+                'footer-impact': '地域への影響'
+            },
+            en: {
+                'site-title': 'National Vacant House Regeneration Platform',
+                'nav-about': 'About Platform',
+                'nav-cases': 'Property Listings',
+                'nav-support': 'Support',
+                'hero-title': 'Start Your Dream Business<br>with Low Investment & Low Risk',
+                'hero-subtitle': 'Transform vacant houses into future hubs with municipal subsidies + crowdfunding',
+                'hero-cta1': 'Apply for Startup',
+                'hero-cta2': 'Join Crowdfunding',
+                'benefits-title': 'Why Low-Risk Entrepreneurship is Possible',
+                'benefit1-title': 'Subsidies Reduce Initial Costs',
+                'benefit1-desc': 'Municipal vacant house renovation subsidies support 50-80% of recovery costs. Start even with limited funds.',
+                'benefit2-title': 'Crowdfunding with Community',
+                'benefit2-desc': 'Fundraise with local residents and supporters. Build customer base before business launch.',
+                'benefit3-title': 'Low-Risk, Safe Start',
+                'benefit3-desc': 'Start business with municipal support. Community connections significantly reduce failure risk.',
+                'cases-title': 'Available Vacant House Projects',
+                'cases-subtitle': 'Okawa City, Fukuoka - Town of Traditional Crafts and History',
+                'flow-title': 'Vacant House Regeneration Steps',
+                'step1-title': 'Vacant House',
+                'step1-desc': 'Underutilized property',
+                'step2-title': 'Subsidy + Crowdfunding',
+                'step2-desc': 'Fundraising and supporter acquisition',
+                'step3-title': 'Startup',
+                'step3-desc': 'Low-risk business launch',
+                'step4-title': 'Regional Revitalization',
+                'step4-desc': 'Sustainable regional development',
+                'cta-title': 'The Community Supports Your Challenge',
+                'cta-subtitle': 'Start your business safely with reduced initial investment',
+                'cta-main': 'Apply for Startup',
+                'cta-crowdfund': 'Join Crowdfunding',
+                'municipality-text': 'For Municipalities',
+                'municipality-cta': 'Register Property',
+                'footer-title': 'National Vacant House Regeneration Platform',
+                'footer-desc': 'A new community development platform connecting vacant houses with entrepreneurs',
+                'footer-entrepreneurs': 'For Entrepreneurs',
+                'footer-howto': 'How to Start',
+                'footer-success': 'Success Stories',
+                'footer-support-ent': 'Support System',
+                'footer-municipalities': 'For Municipalities',
+                'footer-registration': 'Property Registration',
+                'footer-subsidy': 'Subsidy System',
+                'footer-consultation': 'Implementation Consultation',
+                'footer-supporters': 'For Supporters',
+                'footer-crowdfunding': 'Crowdfunding',
+                'footer-community': 'Community',
+                'footer-impact': 'Regional Impact'
+            }
+        };
+
+        let currentLang = 'ja';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button styles
+            document.getElementById('lang-ja').className = lang === 'ja' 
+                ? 'px-3 py-1 text-sm bg-warm-orange text-white rounded' 
+                : 'px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded';
+            document.getElementById('lang-en').className = lang === 'en' 
+                ? 'px-3 py-1 text-sm bg-warm-orange text-white rounded' 
+                : 'px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded';
+
+            // Update all text content
+            Object.keys(translations[lang]).forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.innerHTML = translations[lang][id];
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effects to cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.shadow-lg');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
